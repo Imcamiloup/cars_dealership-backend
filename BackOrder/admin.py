@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import CarsWaitList
+from .models import BackOrder
 
 # Register your models here.
-admin.site.register(CarsWaitList)
+admin.site.register(BackOrder)

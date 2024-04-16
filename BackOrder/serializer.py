@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import CarsWaitList
+from .models import BackOrder
 
-class carsWaitListSerializer(serializers.ModelSerializer):
+class backOrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model = CarsWaitList
-        fields = ['id', 'brand', 'site', 'aspirant']
-        
-        
+        model = BackOrder
+        fields = ['id', 'Brand', 'Site', 'Aspirant']
+
+
         

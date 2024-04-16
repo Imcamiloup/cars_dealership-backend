@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class CarsWaitList(models.Model):
+class BackOrder(models.Model):
     Brand = models.CharField(max_length=100)
     Site = models.CharField(max_length=100)
     Aspirant = models.CharField(max_length=100)
