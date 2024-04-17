@@ -90,6 +90,7 @@ WSGI_APPLICATION = 'car_dealer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -147,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ALLOWED_ORIGINS = [ 
-    'http://localhost:5173'
+    FRONTEND_URL
  ]
 
 APPEND_SLASH = False
