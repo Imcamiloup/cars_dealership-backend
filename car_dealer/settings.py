@@ -21,6 +21,7 @@ PASSWORD = os.getenv("PASSWORD")
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
 DATABASE = os.getenv("DATABASE")
+FRONTEND_URL = os.getenv("FRONTEND_URL")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,10 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'coreapi',
-    'rest_framework',
+    'django.contrib.staticfiles',    
+    'coreapi',    
     'BackOrder',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -144,5 +146,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOWED_ORIGINS = [ ]
+CORS_ALLOWED_ORIGINS = [ 
+    'http://localhost:5173'
+ ]
+
+APPEND_SLASH = False
 
