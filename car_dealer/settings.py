@@ -37,9 +37,9 @@ SECRET_KEY = 'django-insecure-exr#v-pzwr29w(q1*i68qx(z$-772ziwyj969psxnoj$w(ylf8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'carsdealership-backend-production.up.railway.app/']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://carsdealership-frontend-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -102,7 +102,7 @@ DATABASES = {
     }
 }
 
- 
+
 
 
 # Password validation
@@ -147,7 +147,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOWED_ORIGINS = [ '*' ]
+CORS_ALLOWED_ORIGINS = [ 'https://carsdealership-frontend-production.up.railway.app' ]
 
 APPEND_SLASH = False
 
