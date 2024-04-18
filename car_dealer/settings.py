@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 load_dotenv()
 NAME = os.getenv("NAME")
@@ -93,14 +94,17 @@ WSGI_APPLICATION = 'car_dealer.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
+   "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": NAME,
         "USER": USER,
         "PASSWORD": PASSWORD,
-        "HOST": HOST,
+       "HOST": HOST,
         "PORT": PORT,
-    }
+   } 
+   # "default": dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
+
 }
 
  
