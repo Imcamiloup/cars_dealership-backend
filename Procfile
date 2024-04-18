@@ -1,1 +1,1 @@
-web: gunicorn car_dealer.wsgi
+web:  python manage.py collectstatic && gunicorn car_dealer.wsgi

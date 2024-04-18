@@ -37,9 +37,9 @@ SECRET_KEY = 'django-insecure-exr#v-pzwr29w(q1*i68qx(z$-772ziwyj969psxnoj$w(ylf8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'carsdealership-backend-production.up.railway.app/']
+ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://carsdealership-frontend-production.up.railway.app']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',    
-    'coreapi',    
+    'coreapi', 
+    'whitenoise.runserver_nostatic',   
     'BackOrder',
     'corsheaders',
     'rest_framework',
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -90,7 +92,6 @@ WSGI_APPLICATION = 'car_dealer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -102,7 +103,7 @@ DATABASES = {
     }
 }
 
-
+ 
 
 
 # Password validation
@@ -147,7 +148,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ALLOWED_ORIGINS = [ 'https://carsdealership-frontend-production.up.railway.app' ]
+CORS_ALLOWED_ORIGINS = [ 
+    'http://localhost:5173'
+ ]
 
 APPEND_SLASH = False
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+ALLOWED_HOSTS = ['localhost','127.0.0.1','carsdealership-backend.up.railway.app']
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+CSRF_TRUSTED_ORIGINS = ['http://*','https://carsdealership-backend.up.railway.app']
